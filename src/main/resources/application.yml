@@ -1,0 +1,44 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/user_db
+    username: student
+    password: student
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update 
+      use-new-id-generator-mappings: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect  
+    
+server:
+  port: 9090
+  
+management:
+  security:
+    enabled:
+      false
+security:
+  basic:
+    enabled:
+      true
+
+
+feign:
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+      
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: trace
+      type:
+        descriptor:
+          sql: trace
+          
+  pattern:
+    console: "%d{dd-MM-yy} %d{HH:mm:ss.SSS} %-20.20thread %5p %-25.25logger{25} %25M %4L %m%n"        
